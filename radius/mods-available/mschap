@@ -1,0 +1,20 @@
+mschap {
+    authtype = MS-CHAP
+    use_mppe = yes
+    require_encryption = yes
+    require_strong = yes
+
+    authorize {
+        preprocess
+        mschap
+        suffix
+        eap
+        files
+    }
+    authenticate {
+        Auth-Type MS-CHAP {
+            mschap
+        }
+    }
+
+}

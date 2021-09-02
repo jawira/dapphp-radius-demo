@@ -1,0 +1,5 @@
+{
+  "require": {
+    "dapphp/radius": "v2.5.4"
+  }
+}

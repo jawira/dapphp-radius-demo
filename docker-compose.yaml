@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+
+  radius:
+    build:
+      dockerfile: Dockerfile
+      context: radius/
+      args:
+        - '-X'
+    tty: true
+    command: [ "radiusd", "-X", "-t" ]
+    networks:
+      - default
+
+  v254:
+    build:
+      dockerfile: Dockerfile
+      context: v254/
+    depends_on:
+      - radius
+    networks:
+      - default
+
+  v256:
+    build:
+      dockerfile: Dockerfile
+      context: v256/
+    depends_on:
+      - radius
+    networks:
+      - default
+
+
+networks:
+  default:
